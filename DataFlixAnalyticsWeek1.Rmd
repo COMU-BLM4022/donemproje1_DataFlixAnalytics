@@ -58,3 +58,29 @@ Verileri vTiger CRM'den R ile çekerken plan:
 
 Veri Çekme:
 vTiger CRM'in REST API'lerini kullanarak gerekli verileri çekeceğiz. API endpoint'lerini belirleyeceğiz ve HTTP istekleri göndererek veri çekme işlemini gerçekleştireceğiz.
+
+Q3: İş Tanımı
+Şirket Tanımı:
+DataFlix Analytics, Netflix içerik üretim departmanına danışmanlık hizmetleri sunan bir kuruluştur. Amacımız, IMDb puanlarına dayalı veri analizi yaparak Netflix'e hangi türde içerik üretmelerini önermek ve bu şekilde içeriklerinin kalitesini artırmalarına yardımcı olmaktır.
+
+Aktiviteler ve Rutin Operasyonlar:
+-Veri Analizi ve Raporlama: Netflix platformundaki içeriklerin IMDb puanlarına dayalı analizler yapmak ve bu analizlerden elde edilen sonuçları raporlamak.
+
+-Öneri Geliştirme
+Analiz sonuçlarına göre Netflix'e hangi türde içerikler üretmelerini önermek ve bu önerileri raporlamak.
+Toplantılar ve Sunumlar: Analiz sonuçlarını ve önerileri Netflix yöneticilerine sunmak için toplantılar düzenlemek ve sunumlar hazırlamak.
+
+-Gelir Modeli
+Şirketimizin gelir modeli, Netflix ile yapılan danışmanlık sözleşmelerine dayanmaktadır. Her bir danışmanlık projesi için belirlenen bir ücret karşılığında hizmetlerimizi sunmaktayız.
+
+İş ve İş Modelinin Zorlukları ve Avantajları
+Zorluklar:
+Netflix'in karar alma süreçlerine etki etmek ve içerik stratejisini değiştirmek zor olabilir.
+IMDb puanlarının tek başına içerik kalitesini yansıtmadığı durumlar olabilir.
+
+Avantajlar:
+Veri odaklı yaklaşım sayesinde objektif öneriler sunabiliriz.
+Netflix'in içerik kütüphanesi ve geniş kullanıcı tabanı sayesinde analizlerimizin etkisi büyük olabilir.
+
+Gerçek Dünya Rakipleri ve Avantajlarımız:
+Şirketimizin gerçek dünya rakipleri genellikle büyük veri analizi ve danışmanlık şirketleridir. Ancak, Netflix'e odaklı içerik analizi ve öneri konusunda uzmanlaşmış olmamız bize avantaj sağlamaktadır. Ayrıca, IMDb verilerine erişimimiz ve analiz yeteneklerimiz de rakiplerimizden bir adım önde olmamızı sağlar.
