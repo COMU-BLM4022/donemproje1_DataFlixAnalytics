@@ -1,0 +1,29 @@
+Ali Deniz Yakar - 200401018
+Bedran Can Sarı - 200401023
+Fatih Alpaslan Güzel - 200401055
+
+Q1 : IMS platformunun belirlenmesi
+
+Seçtiğimiz IMS platformu vTiger CRM'dir.
+
+Lisansı: vTiger CRM, açık kaynak GPL (Genel Kamu Lisansı) altında lisanslanmıştır.
+
+Kısa Tarihçe: vTiger CRM, 2004 yılında SugarCRM'in açık kaynaklı sürümünden ayrılan bir ekip tarafından oluşturulmuştur. O zamandan beri, platform sürekli olarak geliştirilmiş ve genişletilmiştir. vTiger, işletmelerin müşteri ilişkilerini yönetmek, satış süreçlerini izlemek ve pazarlama faaliyetlerini otomatikleştirmek için kullanılan bir CRM platformudur.
+
+Kullanıcıya Sunduğu Özellikler:
+
+Müşteri yönetimi: Müşteri bilgilerini yönetme, iletişim geçmişini takip etme, müşteri grupları oluşturma vb.
+
+Satış yönetimi: Potansiyel müşteri yönetimi, teklif oluşturma, fırsat yönetimi, satış siparişleri, faturalar ve ödemeler gibi satış süreçlerini yönetme.
+
+Pazarlama otomasyonu: Pazarlama kampanyaları oluşturma, e-posta pazarlama, müşteri segmentasyonu ve takip, sosyal medya entegrasyonu gibi pazarlama faaliyetlerini yönetme.
+
+Müşteri destek yönetimi: Müşteri taleplerini yönetme, destek bileşenleri oluşturma, müşteri memnuniyeti anketleri vb.
+
+Raporlama ve analiz: Özelleştirilebilir raporlar oluşturma, performans izleme, veri analizi ve tahmini gibi iş zekası özellikleri.
+
+Kullanılan Yazılım ve Teknolojiler: vTiger CRM, PHP dilinde geliştirilmiş ve MySQL veritabanı kullanmaktadır. Web tabanlı bir uygulama olarak, Apache HTTP sunucusu üzerinde çalışır. Ayrıca, platform RESTful API'ler sunar.
+
+API Özellikleri: vTiger CRM'in Restful API'si, müşteri bilgilerini, fırsatları, teklifleri, satış siparişlerini, faturaları ve diğer veri noktalarını yönetme yeteneği sunar. Ayrıca, platformun genişletilebilirliğini artırmak için API üzerinden özelleştirilmiş entegrasyonlar geliştirilebilir.
+
+Seçimdeki Rol Oynayan Sebepler: vTiger CRM'i seçmemin ana nedenleri, açık kaynak olması ve geniş özellik yelpazesine sahip olmasıdır. Ayrıca, daha önce vTiger CRM üzerinde çalışmış olmam ve platformun sunduğu esneklik ve geniş kullanıcı tabanı da seçimde etkili olmuştur. Müşteri ilişkileri yönetimi, işletme süreçlerinde kritik bir rol oynar ve vTiger CRM, bu ihtiyaca uygun bir çözüm sunar.
