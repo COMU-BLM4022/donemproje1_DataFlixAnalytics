@@ -83,4 +83,4 @@ Veri odaklı yaklaşım sayesinde objektif öneriler sunabiliriz.
 Netflix'in içerik kütüphanesi ve geniş kullanıcı tabanı sayesinde analizlerimizin etkisi büyük olabilir.
 
 Gerçek Dünya Rakipleri ve Avantajlarımız:
-Şirketimizin gerçek dünya rakipleri genellikle büyük veri analizi ve danışmanlık şirketleridir. Ancak, Netflix'e odaklı içerik analizi ve öneri konusunda uzmanlaşmış olmamız bize avantaj sağlamaktadır. Ayrıca, IMDb verilerine erişimimiz ve analiz yeteneklerimiz de rakiplerimizden bir adım önde olmamızı sağlar.
+Şirketimizin gerçek dünya rakipleri genellikle büyük veri analizi ve danışmanlık şirketleridir. Ancak Netflix'e odaklı içerik analizi ve öneri konusunda uzmanlaşmış olmamız bize avantaj sağlamaktadır. Ayrıca, IMDb verilerine erişimimiz ve analiz yeteneklerimiz de rakiplerimizden bir adım önde olmamızı sağlar.
