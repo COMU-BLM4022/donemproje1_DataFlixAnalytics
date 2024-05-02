@@ -27,3 +27,34 @@ Kullanılan Yazılım ve Teknolojiler: vTiger CRM, PHP dilinde geliştirilmiş v
 API Özellikleri: vTiger CRM'in Restful API'si, müşteri bilgilerini, fırsatları, teklifleri, satış siparişlerini, faturaları ve diğer veri noktalarını yönetme yeteneği sunar. Ayrıca, platformun genişletilebilirliğini artırmak için API üzerinden özelleştirilmiş entegrasyonlar geliştirilebilir.
 
 Seçimdeki Rol Oynayan Sebepler: vTiger CRM'i seçmemin ana nedenleri, açık kaynak olması ve geniş özellik yelpazesine sahip olmasıdır. Ayrıca, daha önce vTiger CRM üzerinde çalışmış olmam ve platformun sunduğu esneklik ve geniş kullanıcı tabanı da seçimde etkili olmuştur. Müşteri ilişkileri yönetimi, işletme süreçlerinde kritik bir rol oynar ve vTiger CRM, bu ihtiyaca uygun bir çözüm sunar.
+
+Q2: Dataset Tanımı
+Veri Seti Adı:
+Netflix IMDB Scores
+
+Veri Seti Adresi:
+https://www.kaggle.com/datasets/thedevastator/netflix-imdb-scores
+
+İçerik:
+Netflix IMDB Scores veriseti, Netflix'te bulunan çeşitli içerikler hakkında kapsamlı bilgiler sağlar. Veri kümesi, başlığın adı, türü (TV şovu veya film olup olmadığı), içeriğin kısa bir açıklaması, yayınlandığı yıl, yaş sertifikası derecelendirmesi, çalışma süresi (TV şovları için: bölümlerin uzunluğu) gibi ayrıntıları içerir. ; filmler için: süre), IMDb puanı ve IMDb oyları.
+
+Verinin Üretildiği Şartlar:
+Veri seti, doğruluk ve alaka düzeyini sağlamak için dikkatle seçilmiştir. Veri bütünlüğünü korumak için IMDb puanlarındaki boş değerleri hariç tutar. Her giriş ayrıca JustWatch'a (yasal yayın için bir platform) karşılık gelen bir kimliğin yanı sıra IMDb'deki ilgili başlık kimliğini de içerir.
+
+Veri Formatı:
+Veri seti CSV formatındadır. Kullanım esnasında sorun yaşamamak için JSON'a dönüştürülecektir.
+
+Veri Boyutu:
+718 kB
+
+Veriyi vTiger CRM'e ithal etme planı:
+
+CSV'den JSON'a Dönüştürme:
+CSV formatındaki veri setini R dilinde okuyarak uygun bir formata dönüştüreceğiz. Ardından, dönüştürülmüş veriyi JSON formatına çevireceğiz.
+
+Verileri vTiger CRM'e İthal Etme:
+vTiger CRM'in API'leri üzerinden veri aktarımını gerçekleştireceğiz. API belgelerini inceleyerek gerekli API endpoint'lerini belirleyeceğiz ve HTTP istekleri göndererek veri aktarımını gerçekleştireceğiz.
+Verileri vTiger CRM'den R ile çekerken plan:
+
+Veri Çekme:
+vTiger CRM'in REST API'lerini kullanarak gerekli verileri çekeceğiz. API endpoint'lerini belirleyeceğiz ve HTTP istekleri göndererek veri çekme işlemini gerçekleştireceğiz.
