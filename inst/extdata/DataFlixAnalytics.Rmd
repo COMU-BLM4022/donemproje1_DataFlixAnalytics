@@ -162,4 +162,6 @@ if (status_code(response) == 200) {
   cat(content(response, as = "text"), "\n")  # Hata mesajını yazdır
 }
 ```
+## Q6 : Çalışan platformun gösterildiği sesli anlatımlı video
+[Video](https://www.youtube.com/watch?v=tWTeM75M6tA)
 
