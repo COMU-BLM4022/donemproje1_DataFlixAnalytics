@@ -45,4 +45,75 @@ Veri Boyutu:
 output: html_document
 ---
 
+## Q3: Veri seti keşifsel analizi 
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(magrittr)
+
+dosya_yolu <- "NetflixTVShowsandMovies.csv"
+data <- read.csv(dosya_yolu)
+
+# veri setinin bir kısmını inceliyoruz
+head(data)
+```
+
+```{r}
+#Type'a göre IMDb ortalamasını gösteren bar grafiği:
+imdb_avg_by_type <- data %>%
+  group_by(type) %>%
+  summarise(avg_imdb_score = mean(imdb_score, na.rm = TRUE))
+
+ggplot(imdb_avg_by_type, aes(x = type, y = avg_imdb_score, fill = type)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(title = "Type'a Göre IMDb Ortalaması",
+       x = "Type",
+       y = "Ortalama IMDb Puani")
+```
+
+```{r}
+#Release year'a göre IMDb ortalamasını gösteren çizgi grafiği:
+imdb_avg_by_year <- data %>%
+  group_by(release_year) %>%
+  summarise(avg_imdb_score = mean(imdb_score, na.rm = TRUE))
+
+ggplot(imdb_avg_by_year, aes(x = release_year, y = avg_imdb_score)) +
+  geom_line(color = "blue") +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "Yıla Göre IMDb Ortalaması",
+       x = "Yıl",
+       y = "Ortalama IMDb Puanı")
+```
+
+
+```{r}
+#IMDb puanlarına göre filmlerin dağılımını gösteren histogram
+ggplot(data, aes(x = imdb_score)) +
+  geom_histogram(binwidth = 0.5, fill = "blue", color = "black") +
+  theme_minimal() +
+  labs(title = "IMDb Puanlarının Dağılımı",
+       x = "IMDb Puani",
+       y ="FilmSayisi")
+```
+
+
+
+```{r}
+#Yaş sertifikasyonlarına göre film sayısını gösteren pasta grafiği:
+age_certification_count <- data %>%
+  group_by(age_certification) %>%
+  summarise(count = n())
+
+ggplot(age_certification_count, aes(x = "", y = count, fill = age_certification)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar(theta = "y") +
+  theme_minimal() +
+  labs(title = "Yaş Sertifikasyonlarına Göre Film Sayısı")
+```
+
 
