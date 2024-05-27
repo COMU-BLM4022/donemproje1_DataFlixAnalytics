@@ -11,3 +11,38 @@ Q1 : İş Probleminin tanımı
 
 Bu rapor, Netflix firmasının ürünlerinin IMDB puanlarını analiz ederek gelecek planlarıyla ilgili öneride bulunup yol haritası çizmelerine katkıda bulunmayı amaçlayarak tasarlanmıştır. İş problemi içeriklerin türlerini, yaş kategorilerini, çıkış yıllarını vs. gibi başlıkları değerlendirerek en yüksek puanlı içerikleri analiz etmek ve Netflix'in bu yönde projeler çıkarmasını sağlamaktır. Bu amaçla, ERPNext adlı açık kaynaklı ve esnek bir ERP(Enterprise Resoruce Planning) platformu kullanılmaktadır.
 
+##Q2: İş problemini çözmede kullanılacak data seti
+#### Veri Setinin Detayları
+Veri Seti Adı:
+Netflix IMDB Scores
+
+Veri Seti Adresi:
+https://www.kaggle.com/datasets/thedevastator/netflix-imdb-scores
+
+İçerik:
+Netflix IMDB Scores veriseti, Netflix'te bulunan çeşitli içerikler hakkında kapsamlı bilgiler sağlar. Veri kümesi, başlığın adı, türü (TV şovu veya film olup olmadığı), içeriğin kısa bir açıklaması, yayınlandığı yıl, yaş sertifikası derecelendirmesi, çalışma süresi (TV şovları için: bölümlerin uzunluğu) gibi ayrıntıları içerir. ; filmler için: süre), IMDb puanı ve IMDb oyları.
+
+1.index:Veri setindeki her bir satırı benzersiz şekilde tanımlayan numara veya sıra. Genellikle sıfırdan başlayan bir dizin kullanılır.
+2.id: Her bir verinin benzersiz kimliği. Genellikle veri tabanlarında veya veri setlerinde her kaydın tanımlanması için kullanılır.
+3.title: Filmin veya dizinin adı.
+4.type: Verinin türü. Bu, "MOVIE" veya "TV SHOW" gibi kategorileri belirler.
+5.description: Filmin veya dizinin kısa özeti veya tanıtımı.
+6.release_year: Filmin veya dizinin yayımlandığı yıl.
+7.age_certification: Filmin veya dizinin yaş sınıflandırması. Örneğin, "PG", "R" gibi.
+8.runtime:Filmin veya dizinin toplam süresi, genellikle dakika cinsinden.
+9.imdb_id: Filmin veya dizinin IMDb üzerindeki benzersiz kimliği.
+10.imdb_score: Filmin veya dizinin IMDb üzerindeki puanı.
+11.imdb_votes: Filmin veya dizinin IMDb üzerindeki oy sayısı.
+
+Verinin Üretildiği Şartlar:
+Veri seti, doğruluk ve alaka düzeyini sağlamak için dikkatle seçilmiştir. Veri bütünlüğünü korumak için IMDb puanlarındaki boş değerleri hariç tutar. Her giriş ayrıca JustWatch'a (yasal yayın için bir platform) karşılık gelen bir kimliğin yanı sıra IMDb'deki ilgili başlık kimliğini de içerir.
+
+Veri Formatı:
+Veri seti CSV formatındadır.
+
+Veri Boyutu:
+716 kB
+output: html_document
+---
+
+
