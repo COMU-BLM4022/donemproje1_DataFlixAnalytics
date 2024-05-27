@@ -1,0 +1,13 @@
+---
+title:"Bilgi Yönetim Sistemleri - Bitirme Projesi Rapor:
+author:
+  -"Bedran Can Sarı-200401023"
+  -"Ali Deniz Yakar-200401018"
+  -"Fatih Alpaslan Güzel-200401055"
+date: "2024-05-27"
+output: html_document
+---
+Q1 : İş Probleminin tanımı
+
+Bu rapor, Netflix firmasının ürünlerinin IMDB puanlarını analiz ederek gelecek planlarıyla ilgili öneride bulunup yol haritası çizmelerine katkıda bulunmayı amaçlayarak tasarlanmıştır. İş problemi içeriklerin türlerini, yaş kategorilerini, çıkış yıllarını vs. gibi başlıkları değerlendirerek en yüksek puanlı içerikleri analiz etmek ve Netflix'in bu yönde projeler çıkarmasını sağlamaktır. Bu amaçla, ERPNext adlı açık kaynaklı ve esnek bir ERP(Enterprise Resoruce Planning) platformu kullanılmaktadır.
+
