@@ -115,5 +115,22 @@ ggplot(age_certification_count, aes(x = "", y = count, fill = age_certification)
   theme_minimal() +
   labs(title = "Yaş Sertifikasyonlarına Göre Film Sayısı")
 ```
+##Q4: Veri setinin BYS platformuna ithali
+Veri setini ERPNext platformuna entegre etmek için izlenen adımlar aşağıda detaylı bir şekilde açıklanmıştır. Bu işlemde ERPNext'in RESTful API'si kullanılmış ve veri seti CSV formatından platforma aktarılmıştır.
+
+Veri setini ERPNext platformuna entegre etmek için izlenen adımlar aşağıda detaylı bir şekilde açıklanmıştır. Bu işlemde ERPNext'in RESTful API'si kullanılmış ve veri seti CSV formatından platforma aktarılmıştır.
+
+#### Adımlar
+
+1. *ERPNext Kurulumu:*
+   - Docker kullanılarak ERPNext platformu kuruldu.
+   - Docker konteynerında ERPNext'in çalışır hale getirilmesi sağlandı.
+
+2. *Veri Setinin Hazırlanması:*
+   - Kaggle'dan indirilen CSV dosyası gerekli temizlik ve dönüştürme işlemleri yapılarak uygun hale getirildi.
+   - Gereksiz sütunlar kaldırıldı, tarih formatları dönüştürüldü ve eksik veriler temizlendi.
+
+3. *Veri Setinin ERPNext'e Aktarılması:*
+   - ERPNext'in sağladığı panel kullanılarak CSV dosyasındaki veriler platforma aktarıldı.
 
 
