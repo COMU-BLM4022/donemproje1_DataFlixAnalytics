@@ -133,4 +133,33 @@ Veri setini ERPNext platformuna entegre etmek için izlenen adımlar aşağıda 
 3. *Veri Setinin ERPNext'e Aktarılması:*
    - ERPNext'in sağladığı panel kullanılarak CSV dosyasındaki veriler platforma aktarıldı.
 
+```{r}
+##Q5 Yapılması planlanan veri analizi
+# ERPNext'ten veri çekilmesi
+
+# Gerekli kütüphaneleri yükleyin
+library(httr)
+library(jsonlite)
+
+# ERPNext API URL'i (newdoc için)
+url <- "http://localhost:8080/api/resource/Movies/1"
+
+api_key <- "f22b8052e893917"
+api_secret <- "8783294f64b514d"
+
+# GET isteği yapın
+#response <- GET(url, authenticate(Administrator, admin, type = "basic"))
+
+# GET isteğini yap
+response <- GET(url, authenticate(api_key, api_secret, type = "basic"))
+
+# Yanıtı kontrol et ve verileri al
+if (status_code(response) == 200) {
+  data <- content(response, as = "text")
+  json_data <- fromJSON(data)
+} else {
+  cat("İstek başarısız oldu. Durum kodu:", status_code(response), "\n")
+  cat(content(response, as = "text"), "\n")  # Hata mesajını yazdır
+}
+```
 
