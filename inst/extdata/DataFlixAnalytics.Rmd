@@ -1,0 +1,167 @@
+---
+title:"Bilgi Yönetim Sistemleri - Bitirme Projesi Rapor:
+author:
+  -"Bedran Can Sarı-200401023"
+  -"Ali Deniz Yakar-200401018"
+  -"Fatih Alpaslan Güzel-200401055"
+date: "2024-05-27"
+output: html_document
+---
+Q1 : İş Probleminin tanımı
+
+Bu rapor, Netflix firmasının ürünlerinin IMDB puanlarını analiz ederek gelecek planlarıyla ilgili öneride bulunup yol haritası çizmelerine katkıda bulunmayı amaçlayarak tasarlanmıştır. İş problemi içeriklerin türlerini, yaş kategorilerini, çıkış yıllarını vs. gibi başlıkları değerlendirerek en yüksek puanlı içerikleri analiz etmek ve Netflix'in bu yönde projeler çıkarmasını sağlamaktır. Bu amaçla, ERPNext adlı açık kaynaklı ve esnek bir ERP(Enterprise Resoruce Planning) platformu kullanılmaktadır.
+
+##Q2: İş problemini çözmede kullanılacak data seti
+#### Veri Setinin Detayları
+Veri Seti Adı:
+Netflix IMDB Scores
+
+Veri Seti Adresi:
+https://www.kaggle.com/datasets/thedevastator/netflix-imdb-scores
+
+İçerik:
+Netflix IMDB Scores veriseti, Netflix'te bulunan çeşitli içerikler hakkında kapsamlı bilgiler sağlar. Veri kümesi, başlığın adı, türü (TV şovu veya film olup olmadığı), içeriğin kısa bir açıklaması, yayınlandığı yıl, yaş sertifikası derecelendirmesi, çalışma süresi (TV şovları için: bölümlerin uzunluğu) gibi ayrıntıları içerir. ; filmler için: süre), IMDb puanı ve IMDb oyları.
+
+1.index:Veri setindeki her bir satırı benzersiz şekilde tanımlayan numara veya sıra. Genellikle sıfırdan başlayan bir dizin kullanılır.
+2.id: Her bir verinin benzersiz kimliği. Genellikle veri tabanlarında veya veri setlerinde her kaydın tanımlanması için kullanılır.
+3.title: Filmin veya dizinin adı.
+4.type: Verinin türü. Bu, "MOVIE" veya "TV SHOW" gibi kategorileri belirler.
+5.description: Filmin veya dizinin kısa özeti veya tanıtımı.
+6.release_year: Filmin veya dizinin yayımlandığı yıl.
+7.age_certification: Filmin veya dizinin yaş sınıflandırması. Örneğin, "PG", "R" gibi.
+8.runtime:Filmin veya dizinin toplam süresi, genellikle dakika cinsinden.
+9.imdb_id: Filmin veya dizinin IMDb üzerindeki benzersiz kimliği.
+10.imdb_score: Filmin veya dizinin IMDb üzerindeki puanı.
+11.imdb_votes: Filmin veya dizinin IMDb üzerindeki oy sayısı.
+
+Verinin Üretildiği Şartlar:
+Veri seti, doğruluk ve alaka düzeyini sağlamak için dikkatle seçilmiştir. Veri bütünlüğünü korumak için IMDb puanlarındaki boş değerleri hariç tutar. Her giriş ayrıca JustWatch'a (yasal yayın için bir platform) karşılık gelen bir kimliğin yanı sıra IMDb'deki ilgili başlık kimliğini de içerir.
+
+Veri Formatı:
+Veri seti CSV formatındadır.
+
+Veri Boyutu:
+716 kB
+output: html_document
+---
+
+## Q3: Veri seti keşifsel analizi 
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(magrittr)
+
+dosya_yolu <- "NetflixTVShowsandMovies.csv"
+data <- read.csv(dosya_yolu)
+
+# veri setinin bir kısmını inceliyoruz
+head(data)
+```
+
+```{r}
+#Type'a göre IMDb ortalamasını gösteren bar grafiği:
+imdb_avg_by_type <- data %>%
+  group_by(type) %>%
+  summarise(avg_imdb_score = mean(imdb_score, na.rm = TRUE))
+
+ggplot(imdb_avg_by_type, aes(x = type, y = avg_imdb_score, fill = type)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(title = "Type'a Göre IMDb Ortalaması",
+       x = "Type",
+       y = "Ortalama IMDb Puani")
+```
+
+```{r}
+#Release year'a göre IMDb ortalamasını gösteren çizgi grafiği:
+imdb_avg_by_year <- data %>%
+  group_by(release_year) %>%
+  summarise(avg_imdb_score = mean(imdb_score, na.rm = TRUE))
+
+ggplot(imdb_avg_by_year, aes(x = release_year, y = avg_imdb_score)) +
+  geom_line(color = "blue") +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "Yıla Göre IMDb Ortalaması",
+       x = "Yıl",
+       y = "Ortalama IMDb Puanı")
+```
+
+
+```{r}
+#IMDb puanlarına göre filmlerin dağılımını gösteren histogram
+ggplot(data, aes(x = imdb_score)) +
+  geom_histogram(binwidth = 0.5, fill = "blue", color = "black") +
+  theme_minimal() +
+  labs(title = "IMDb Puanlarının Dağılımı",
+       x = "IMDb Puani",
+       y ="FilmSayisi")
+```
+
+
+
+```{r}
+#Yaş sertifikasyonlarına göre film sayısını gösteren pasta grafiği:
+age_certification_count <- data %>%
+  group_by(age_certification) %>%
+  summarise(count = n())
+
+ggplot(age_certification_count, aes(x = "", y = count, fill = age_certification)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar(theta = "y") +
+  theme_minimal() +
+  labs(title = "Yaş Sertifikasyonlarına Göre Film Sayısı")
+```
+##Q4: Veri setinin BYS platformuna ithali
+Veri setini ERPNext platformuna entegre etmek için izlenen adımlar aşağıda detaylı bir şekilde açıklanmıştır. Bu işlemde ERPNext'in RESTful API'si kullanılmış ve veri seti CSV formatından platforma aktarılmıştır.
+
+Veri setini ERPNext platformuna entegre etmek için izlenen adımlar aşağıda detaylı bir şekilde açıklanmıştır. Bu işlemde ERPNext'in RESTful API'si kullanılmış ve veri seti CSV formatından platforma aktarılmıştır.
+
+#### Adımlar
+
+1. *ERPNext Kurulumu:*
+   - Docker kullanılarak ERPNext platformu kuruldu.
+   - Docker konteynerında ERPNext'in çalışır hale getirilmesi sağlandı.
+
+2. *Veri Setinin Hazırlanması:*
+   - Kaggle'dan indirilen CSV dosyası gerekli temizlik ve dönüştürme işlemleri yapılarak uygun hale getirildi.
+   - Gereksiz sütunlar kaldırıldı, tarih formatları dönüştürüldü ve eksik veriler temizlendi.
+
+3. *Veri Setinin ERPNext'e Aktarılması:*
+   - ERPNext'in sağladığı panel kullanılarak CSV dosyasındaki veriler platforma aktarıldı.
+
+```{r}
+##Q5 Yapılması planlanan veri analizi
+# ERPNext'ten veri çekilmesi
+
+# Gerekli kütüphaneleri yükleyin
+library(httr)
+library(jsonlite)
+
+# ERPNext API URL'i (newdoc için)
+url <- "http://localhost:8080/api/resource/Movies/1"
+
+api_key <- "f22b8052e893917"
+api_secret <- "8783294f64b514d"
+
+# GET isteği yapın
+#response <- GET(url, authenticate(Administrator, admin, type = "basic"))
+
+# GET isteğini yap
+response <- GET(url, authenticate(api_key, api_secret, type = "basic"))
+
+# Yanıtı kontrol et ve verileri al
+if (status_code(response) == 200) {
+  data <- content(response, as = "text")
+  json_data <- fromJSON(data)
+} else {
+  cat("İstek başarısız oldu. Durum kodu:", status_code(response), "\n")
+  cat(content(response, as = "text"), "\n")  # Hata mesajını yazdır
+}
+```
+## Q6 : Çalışan platformun gösterildiği sesli anlatımlı video
+[Video](https://www.youtube.com/watch?v=tWTeM75M6tA)
+
